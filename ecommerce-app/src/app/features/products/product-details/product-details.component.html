@@ -1,0 +1,42 @@
+<section class="max-w-6xl mx-auto px-4 md:px-10 py-10">
+  <div  class="grid md:grid-cols-2 gap-10 items-center animate-product">
+    <!-- Product Image -->
+    <div class="relative group">
+      <img
+        [src]="product.image"
+        alt="img"
+        class="rounded-2xl shadow-lg w-full h-[300px] sm:h-[400px] object-cover transition-transform duration-500 group-hover:scale-105"
+      />
+    </div>
+
+    <!-- Product Details -->
+    <div>
+      <h1 class="text-2x1 sm:text-3xl font-bold mb-2 text-[#272136]">
+        {{ product.name }}
+      </h1>
+      <p class="text-gray-500 mb-4 text-sm sm:text-base">
+        {{ product.description }}
+      </p>
+      <p class="text-[#7C3AED] text-2xl font-semibold mb-6">
+        ₹{{ product.price }}
+      </p>
+
+      <!-- Quantity -->
+      <div class="flex items-center space-x-4 mb-6">
+        <button (click)="decreaseQty()" class="bg-gray-200 px-3 py-1 rounded-full text-xl hover:bg-gray-300">−</button>
+        <span class="text-lg font-semibold">{{ quantity }}</span>
+        <button (click)="increaseQty()" class="bg-gray-200 px-3 py-1 rounded-full text-xl hover:bg-gray-300">+</button>
+      </div>
+
+      <!-- Buttons -->
+      <div class="flex flex-col sm:flex-row gap-3">
+        <button (click)="addToCart()" class="bg-[#7C3AED] text-white px-6 py-2 rounded-full hover:bg-[#5B21B6] transition">
+          Add to Cart
+        </button>
+        <button (click)="buyNow()" class="border border-[#7C3AED] text-[#7C3AED] px-6 py-2 rounded-full hover:bg-[#7C3AED] hover:text-white transition">
+          Buy Now
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

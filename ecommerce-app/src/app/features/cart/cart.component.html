@@ -1,0 +1,49 @@
+<section class="max-w-6xl mx-auto px-5 py-10">
+  <h2 class="text-2xl font-bold mb-5 text-[#272136]">Your Cart</h2>
+
+  <!-- Empty Cart Message -->
+  <div *ngIf="cartItems.length === 0" class="text-gray-500 text-center ">
+    Your cart is empty!
+  </div>
+
+  <!-- Cart Items -->
+  <div *ngFor="let item of cartItems" class="flex flex-col sm:flex-row items-center justify-between bg-white p-[30px] gap-x-[50px] mb-3 rounded-lg shadow-md">
+    
+    <div class="flex items-center gap-[20px] w-full sm:w-auto">
+      <img [src]="item.image" alt="{{ item.name }}" class="w-20 h-20 rounded-lg object-cover" />
+      <div class="py-">
+        <h3 class="font-semibold text-lg">{{ item.name }}</h3>
+        <p class="text-gray-500">Unit Price: ₹{{ item.price }}</p>
+        
+        <!-- Quantity buttons -->
+        <div class="flex items-center space-x-2 mt-2">
+          <button (click)="decreaseQty(item)" class="bg-gray-100 px-2 py-1 rounded-full text-xl hover:bg-gray-300">−</button>
+          <span class="text-lg font-semibold">{{ item.quantity }}</span>
+          <button (click)="increaseQty(item)" class="bg-gray-100  px-2 py-1 rounded-full text-xl hover:bg-gray-300">+</button>
+        </div>
+        
+        <p class="mt-2 font-semibold">Total: ₹{{ item.price * (item.quantity || 1) }}</p>
+      </div>
+    </div>
+
+    <!-- Remove button -->
+    <div class="mt-3 sm:mt-0 sm:ml-4">
+   <button
+  class="bg-red-500 text-white px-4   p-1 rounded-md hover:bg-red-400 transition"
+  (click)="removeItem(item)"
+>
+  Remove
+</button>
+
+    </div>
+
+  </div>
+
+  <!-- Cart Total & Checkout -->
+  <div *ngIf="cartItems.length > 0" class="flex flex-col sm:flex-row justify-between items-center border-t pt-4 mt-4">
+    <h3 class="text-xl font-bold mb-3 sm:mb-0">Cart Total: ₹{{ total }}</h3>
+    <button class="bg-[#5a37a7] text-white px-6 py-2 rounded-md hover:bg-[#251646] transition" (click)="goToCheckout()" >
+      Checkout
+    </button>
+  </div>
+</section>

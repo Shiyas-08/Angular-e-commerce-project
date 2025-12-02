@@ -1,0 +1,160 @@
+<div class="bg-white shadow rounded-lg p-6">
+  <h2 class="text-xl font-semibold text-gray-800 mb-4">Manage Orders</h2>
+
+  <!-- Loader -->
+  <div *ngIf="loading" class="text-center py-10 text-gray-500">
+    Loading orders...
+  </div>
+
+  <!-- Orders Table -->
+  <table
+    *ngIf="!loading && filteredOrders.length"
+    class="min-w-full border border-gray-200 text-sm rounded-md overflow-hidden"
+  >
+    <thead class="bg-gray-100">
+      <tr>
+        <th class="py-2 px-4 text-left">Order ID</th>
+        <th class="py-2 px-4 text-left">User ID</th>
+        <th class="py-2 px-4 text-left">Total (₹)</th>
+        <th class="py-2 px-4 text-left">Date</th>
+        <th class="py-2 px-4 text-left">Current Status</th>
+        <th class="py-2 px-4 text-left">Change Status</th>
+        <th class="py-2 px-4 text-center">View</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr
+        *ngFor="let order of filteredOrders"
+        class="border-t hover:bg-gray-50 transition-all"
+      >
+        <td class="py-2 px-4 font-medium text-gray-800">{{ order.id |uppercase }}</td>
+        <td class="py-2 px-4 text-gray-700">{{ order.userId |uppercase}}</td>
+        <td class="py-2 px-4 font-semibold text-gray-900">{{ order.total |currency:'INR' }}</td>
+        <td class="py-2 px-4 text-gray-600">{{ order.date | date:'medium' }}</td>
+
+        <!--  Current Status Badge -->
+        <td class="py-2 px-4">
+          <span
+            [ngClass]="{
+              'bg-yellow-100 text-yellow-800': order.status === 'Order Placed',
+              'bg-blue-100 text-blue-800': order.status === 'Packed',
+              'bg-indigo-100 text-indigo-800': order.status === 'Shipped',
+              'bg-purple-100 text-purple-800': order.status === 'Out for Delivery',
+              'bg-green-100 text-green-800': order.status === 'Delivered'
+            }"
+            class="px-3 py-1 rounded-full text-xs font-semibold"
+          >
+            {{ order.status }}
+          </span>
+        </td>
+
+        <!-- Change Status Dropdown -->
+        <td class="py-2 px-4">
+          <select
+            [(ngModel)]="order.status"
+            (change)="changeStatus(order, order.status)"
+            class="border border-gray-300 rounded-md px-2 py-1 text-sm focus:ring-2 focus:ring-indigo-400"
+          >
+            <option *ngFor="let s of orderStatuses" [value]="s">{{ s }}</option>
+          </select>
+        </td>
+
+        <!-- View Button -->
+        <td class="py-2 px-4 text-center">
+          <button
+            (click)="viewOrder(order)"
+            class="text-blue-600 hover:text-blue-800 transition"
+          >
+            <i class="fa-solid fa-eye text-lg"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Empty -->
+  <div
+    *ngIf="!loading && !filteredOrders.length"
+    class="text-center py-10 text-gray-500"
+  >
+    No orders found.
+  </div>
+</div>
+
+<!-- Order Details Modal -->
+<div
+  *ngIf="selectedOrder"
+  class="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
+>
+  <div
+    class="bg-white w-[450px] rounded-lg shadow-lg p-6 relative border border-gray-200"
+  >
+    <button
+      (click)="closeModal()"
+      class="absolute top-3 right-3 text-gray-400 hover:text-gray-600"
+    >
+      <i class="fa-solid fa-xmark text-lg"></i>
+    </button>
+
+    <h3 class="text-lg font-semibold text-gray-800 mb-4">
+      <i class="fa-solid fa-box mr-2 text-indigo-600"></i>Order Details
+    </h3>
+
+    <div class="text-sm space-y-2">
+      <p><strong>Order ID:</strong> {{ selectedOrder.id }}</p>
+      <p><strong>User ID:</strong> {{ selectedOrder.userId }}</p>
+      <p><strong>Date:</strong> {{ selectedOrder.date | date: 'medium' }}</p>
+      <p><strong>Total:</strong> ₹{{ selectedOrder.total }}</p>
+
+      <!-- Current Status -->
+      <p>
+        <strong>Status:</strong>
+        <span
+          [ngClass]="{
+            'bg-yellow-100 text-yellow-800': selectedOrder.status === 'Order Placed',
+            'bg-blue-100 text-blue-800': selectedOrder.status === 'Packed',
+            'bg-indigo-100 text-indigo-800': selectedOrder.status === 'Shipped',
+            'bg-purple-100 text-purple-800': selectedOrder.status === 'Out for Delivery',
+            'bg-green-100 text-green-800': selectedOrder.status === 'Delivered'
+          }"
+          class="px-3 py-1 rounded-full text-xs font-semibold"
+        >
+          {{ selectedOrder.status }}
+        </span>
+      </p>
+
+      <!-- Ordered Items -->
+      <div class="mt-4">
+        <p class="font-semibold mb-2 text-gray-700">Ordered Items:</p>
+        <div
+          *ngFor="let item of selectedOrder.items"
+          class="flex items-center gap-3 border-b py-2"
+        >
+          <img
+            [src]="item.image"
+            alt="Product"
+            class="w-12 h-12 rounded object-cover border"
+          />
+          <div>
+            <p class="font-medium text-gray-800">{{ item.name }}</p>
+            <p class="text-xs text-gray-600">
+              Qty: {{ item.quantity }} × ₹{{ item.price }}
+              = <span class="font-semibold">₹{{ item.price * item.quantity }}</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Close -->
+    <div class="mt-5 text-right">
+      <button
+        (click)="closeModal()"
+        class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-1.5 rounded-md text-sm font-medium"
+      >
+        Close
+      </button>
+    </div>
+  </div>
+</div>

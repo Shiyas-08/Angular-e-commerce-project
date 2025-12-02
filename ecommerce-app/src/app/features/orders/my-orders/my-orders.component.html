@@ -1,0 +1,74 @@
+<section class="max-w-5xl mx-auto py-10 px-5">
+  <h2 class="text-2xl font-bold mb-5">My Orders</h2>
+
+  <div *ngIf="orders.length === 0" class="text-gray-500 text-center">
+    No orders found.
+  </div>
+
+  <div *ngFor="let order of orders" class="bg-white shadow rounded-lg p-5 mb-6 border border-gray-200 relative overflow-hidden">
+    <!-- Header -->
+    <div class="flex justify-between items-center border-b pb-2 mb-3">
+      <p class="font-semibold text-gray-700">Order ID: {{ order.id }}</p>
+      <span class="text-sm font-semibold"
+            [ngClass]="{
+              'text-blue-500': order.status === 'Pending',
+              'text-yellow-500': order.status === 'Shipped',
+              'text-green-600': order.status === 'Delivered',
+              'text-red-500': order.status === 'Cancelled'
+            }">
+        {{ order.status }}
+      </span>
+    </div>
+
+    <!-- Items -->
+    <div class="space-y-2 mb-4">
+      <div *ngFor="let item of order.items" class="flex justify-between items-center">
+        <div class="flex items-center space-x-2">
+          <img [src]="item.image" alt="" class="w-12 h-12 rounded" />
+          <p>{{ item.name }} × {{ item.quantity }}</p>
+        </div>
+        <p class="font-medium">₹{{ item.price * item.quantity }}</p>
+      </div>
+    </div>
+<!-- trkking -->
+    <div *ngIf="order.status !== 'Cancelled'" class="mt-6 relative">
+      <h4 class="font-semibold mb-4 text-gray-800">Order Tracking</h4>
+
+      <div class="relative flex justify-between items-center w-full">
+        <!-- Background Line -->
+        <div class="absolute top-4 left-0 right-0 h-[3px] bg-gray-300 z-0 rounded-full"></div>
+
+        <!-- Progress Line -->
+        <div
+          class="absolute top-4 left-0 h-[3px] bg-[#7C3AED] z-10 rounded-full transition-all duration-500"
+          [style.width.%]="getProgress(order)">
+        </div>
+
+        <!-- Steps -->
+        <ng-container *ngFor="let step of trackingSteps; let i = index">
+          <div class="flex flex-col items-center text-center relative z-20 w-[20%]">
+            <div
+              class="w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold shadow-md"
+              [ngClass]="{
+                'bg-[#7C3AED]': isStepCompleted(order, step),
+                'bg-gray-300': !isStepCompleted(order, step)
+              }">
+              {{ i + 1 }}
+            </div>
+            <p class="text-xs mt-2 text-gray-700 font-medium">{{ step }}</p>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="flex justify-between items-center mt-6 pt-3 border-t">
+      <p class="font-semibold text-gray-800">Total: ₹{{ order.total }}</p>
+      <button
+        *ngIf="order.status !== 'Delivered' && order.status !== 'Cancelled'"
+        (click)="cancelOrder(order)"
+        class="px-4 py-1 bg-red-500 text-white rounded-md hover:bg-red-600 transition">
+        Cancel
+      </button>
+    </div>
+  </div>
+</section>

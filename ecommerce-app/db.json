@@ -1,0 +1,391 @@
+{
+  "users": [
+    {
+      "id": "cf12",
+      "name": "Muhammed Shiyas C",
+      "email": "shiyas@gmail.com",
+      "phone": "9778255714",
+      "password": "12345678",
+      "role": "user",
+      "isBlocked": false
+    },
+    {
+      "id": "a5ab",
+      "name": "Akash Rameash",
+      "email": "akash@gmail.com",
+      "phone": "8111915969",
+      "password": "12345678",
+      "role": "user"
+    },
+    {
+      "id": "8e55",
+      "name": "Muhammed Shabeer ",
+      "email": "shabeer@gmail.com",
+      "phone": "9995974607",
+      "password": "12345678",
+      "role": "user"
+    },
+    {
+      "id": "5e7c",
+      "name": "Muhammed Shiyas C",
+      "email": "mshiyas@gmail.com",
+      "phone": "9995974607",
+      "password": "12345678",
+      "role": "user",
+      "isBlocked": false
+    },
+    {
+      "id": "71c3",
+      "name": "Muhammed Shabeer ",
+      "email": "shaber@gmail.com",
+      "phone": "9745155577",
+      "password": "12345678",
+      "role": "user"
+    },
+    {
+      "id": "7c40",
+      "name": "Muhammed Shiyas C",
+      "email": "shiyas12@gmail.com",
+      "phone": "9778255714",
+      "password": "12345678",
+      "role": "user"
+    },
+    {
+      "id": "2c6d",
+      "name": "Muhammed Shiyas C",
+      "email": "shiyas123@gmail.com",
+      "phone": "9778255712",
+      "password": "12345678",
+      "role": "user"
+    }
+  ],
+  "admins": [
+    {
+      "id": "1",
+      "name": "Admin",
+      "email": "admin@gmail.com",
+      "phone": "1234567890",
+      "password": "admin123",
+      "role": "admin"
+    }
+  ],
+  "cart": [
+    {
+      "id": "7516",
+      "productId": "4",
+      "name": "OwlWhite Full HD Streaming Webcam",
+      "price": 3699,
+      "image": "assets/product img/webcam.webp",
+      "userId": "cf12",
+      "quantity": 1,
+      "category": "Webcam"
+    },
+    {
+      "id": "3940",
+      "productId": "2",
+      "name": "VoltX Elite Mouse",
+      "price": 4599,
+      "image": "assets/product img/mouse5.webp",
+      "userId": "1",
+      "quantity": 1,
+      "category": "Mouse"
+    },
+    {
+      "id": "80b1",
+      "productId": "3",
+      "name": "VoltX Wireless Mechanical Keyboard",
+      "price": 6999,
+      "image": "assets/product img/key3.webp",
+      "userId": "1",
+      "quantity": 1,
+      "category": "Keyboard"
+    }
+  ],
+  "visualList": [
+    {
+      "id": "2147",
+      "productId": "1",
+      "name": "VoltX Mechanical Keyboard Pro",
+      "price": 5999,
+      "image": "assets/product img/key1.webp",
+      "userId": "59ee"
+    },
+    {
+      "id": "33fd",
+      "productId": "1",
+      "name": "VoltX Mechanical Keyboard Pro",
+      "price": 5999,
+      "image": "assets/product img/key1.webp",
+      "userId": "1"
+    }
+  ],
+  "orders": [
+    {
+      "id": "ede242",
+      "userId": "cf12",
+      "items": [
+        {
+          "productId": "1",
+          "name": "VoltX Mechanical Keyboard Pro",
+          "price": 5999,
+          "quantity": 1,
+          "image": "assets/product img/key1.webp",
+          "category": "Keyboard"
+        }
+      ],
+      "total": 5999,
+      "address": {
+        "fullName": "Muhammed Shiyas c",
+        "phone": "9778255714",
+        "address": "my house",
+        "city": "areekode",
+        "state": "Kerala",
+        "pincode": "673639"
+      },
+      "paymentMethod": "COD",
+      "date": "2025-11-27T12:34:59.897Z",
+      "status": "Pending"
+    },
+    {
+      "id": "49c9b7",
+      "userId": "cf12",
+      "items": [
+        {
+          "productId": "4",
+          "name": "OwlWhite Full HD Streaming Webcam",
+          "price": 3699,
+          "quantity": 1,
+          "image": "assets/product img/webcam.webp",
+          "category": "Webcam"
+        }
+      ],
+      "total": 3699,
+      "address": {
+        "fullName": "Shiyas",
+        "phone": "9778255714",
+        "address": "vsvdsvk",
+        "city": "areekode",
+        "state": "Kerala",
+        "pincode": "673639"
+      },
+      "paymentMethod": "COD",
+      "date": "2025-11-27T12:45:34.070Z",
+      "status": "Delivered"
+    },
+    {
+      "id": "fb4e01",
+      "userId": "2c6d",
+      "items": [
+        {
+          "productId": "2",
+          "name": "VoltX Elite Mouse",
+          "price": 4599,
+          "quantity": 2,
+          "image": "assets/product img/mouse5.webp",
+          "category": "Mouse"
+        }
+      ],
+      "total": 9198,
+      "address": {
+        "fullName": "muhammed shiyas ",
+        "phone": "9778255714",
+        "address": "cheruvangadn house ",
+        "city": "Areekode",
+        "state": "Kerala",
+        "pincode": "673639"
+      },
+      "paymentMethod": "COD",
+      "date": "2025-11-27T13:40:35.719Z",
+      "status": "Delivered"
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "name": "VoltX Mechanical Keyboard Pro",
+      "price": 5999,
+      "description": "RGB backlit mechanical keyboard with blue switches.",
+      "category": "Keyboard",
+      "image": "assets/product img/key1.webp",
+      "rating": 4.8,
+      "isFeatured": true,
+      "videoUrl": "assets/product img/vid1.mp4",
+      "quantity": 1
+    },
+    {
+      "id": "2",
+      "name": "VoltX Elite Mouse",
+      "price": 4599,
+      "description": "Advanced optical sensor and macro support.",
+      "category": "Mouse",
+      "image": "assets/product img/mouse5.webp",
+      "rating": 4.8,
+      "quantity": 1,
+      "isFeatured": false
+    },
+    {
+      "id": "3",
+      "name": "VoltX Wireless Mechanical Keyboard",
+      "price": 6999,
+      "description": "Bluetooth + USB dual mode mechanical keyboard with red switches.",
+      "category": "Keyboard",
+      "image": "assets/product img/key3.webp",
+      "rating": 4.7,
+      "quantity": 1
+    },
+    {
+      "id": "4",
+      "name": "OwlWhite Full HD Streaming Webcam",
+      "price": 3699,
+      "description": "Crystal-clear video for professional streaming experience.",
+      "category": "Webcam",
+      "image": "assets/product img/webcam.webp",
+      "rating": 4.3,
+      "isFeatured": true,
+      "videoUrl": "assets/product img/vid2.mp4",
+      "quantity": 1
+    },
+    {
+      "id": "5",
+      "name": "VoltX Aluminum Keyboard",
+      "price": 7999,
+      "description": "Premium aluminum frame keyboard with per-key RGB lighting.",
+      "category": "Keyboard",
+      "image": "assets/product img/key5.webp",
+      "rating": 4.9,
+      "quantity": 1
+    },
+    {
+      "id": "6",
+      "name": "VoltX Surround Headphones",
+      "price": 3499,
+      "description": "7.1 surround sound headset with soft ear cushions.",
+      "category": "Headphone",
+      "image": "assets/product img/head.webp",
+      "rating": 4.7,
+      "quantity": 1
+    },
+    {
+      "id": "7",
+      "name": "VoltX Gaming Mouse X",
+      "price": 2499,
+      "description": "RGB ergonomic gaming mouse with 12,000 DPI sensor.",
+      "category": "Mouse",
+      "image": "assets/product img/mouse1.webp",
+      "rating": 4.6,
+      "quantity": 1
+    },
+    {
+      "id": "8",
+      "name": "VoltX Ergo Gaming Chair",
+      "price": 12999,
+      "description": "High-back ergonomic chair with adjustable armrests and recline.",
+      "category": "Chair",
+      "image": "assets/product img/chair1.webp",
+      "rating": 4.9,
+      "quantity": 1
+    },
+    {
+      "id": "9",
+      "name": "VoltX Ultra Precision Mouse",
+      "price": 2999,
+      "description": "Adjustable weight gaming mouse with RGB strip.",
+      "category": "Mouse",
+      "image": "assets/product img/mouse3.webp",
+      "rating": 4.5,
+      "quantity": 1
+    },
+    {
+      "id": "10",
+      "name": "VoltX FPS Mouse",
+      "price": 1799,
+      "description": "Designed for FPS gamers, lightweight and responsive.",
+      "category": "Mouse",
+      "image": "assets/product img/mouse4.webp",
+      "rating": 4.2,
+      "quantity": 1
+    },
+    {
+      "id": "11",
+      "name": "VoltX TKL Compact Keyboard",
+      "price": 4999,
+      "description": "Tenkeyless compact gaming keyboard with customizable lighting.",
+      "category": "Keyboard",
+      "image": "assets/product img/key2.webp",
+      "rating": 4.5,
+      "quantity": 1
+    },
+    {
+      "id": "12",
+      "name": "VoltX Wireless Mouse",
+      "price": 1999,
+      "description": "Lag-free wireless gaming mouse with customizable DPI.",
+      "category": "Mouse",
+      "image": "assets/product img/mouse2.webp",
+      "rating": 4.3,
+      "quantity": 1
+    },
+    {
+      "id": "13",
+      "name": "VoltX Comfort Chair",
+      "price": 9999,
+      "description": "Breathable mesh chair for long gaming sessions.",
+      "category": "Chair",
+      "image": "assets/product img/chair2.webp",
+      "rating": 4.6,
+      "quantity": 1
+    },
+    {
+      "id": "14",
+      "name": "VoltX Silent Keyboard",
+      "price": 3999,
+      "description": "Ultra-quiet switches with ergonomic wrist rest support.",
+      "category": "Keyboard",
+      "image": "assets/product img/key6.webp",
+      "rating": 4.1,
+      "quantity": 1
+    },
+    {
+      "id": "15",
+      "name": "Voltex SurgeXB Wireless PC Gaming Controller",
+      "price": 3999,
+      "description": "Enjoy smoother, more accurate trigger response every time you aim, brake, or accelerate.",
+      "category": "Controller",
+      "image": "assets/product img/controller.webp",
+      "rating": 4.5,
+      "quantity": 1
+    },
+    {
+      "id": "16",
+      "name": "VoltX Low Profile Keyboard",
+      "price": 4499,
+      "description": "Slim RGB keyboard for smooth and quiet typing experience.",
+      "category": "Keyboard",
+      "image": "assets/product img/key4.webp",
+      "rating": 4.3,
+      "quantity": 1
+    },
+    {
+      "id": "17",
+      "name": "Mirage Wireless RGB Gaming Controller Gamepad",
+      "price": 2999,
+      "description": "Enjoy smoother, more accurate trigger response every time you aim, brake, or accelerate.",
+      "category": "Controller",
+      "image": "assets/product img/controller2.webp",
+      "rating": 4.9,
+      "isFeatured": true,
+      "quantity": 1
+    },
+    {
+      "id": "18",
+      "name": "Obsidian 27-inch Gaming Monitor",
+      "price": 16999,
+      "description": "Up to 200 frames per second at 10-bit color depth for incredibly smooth & vibrant experience.",
+      "category": "Monitor",
+      "image": "assets/product img/monitor.webp",
+      "rating": 4.9,
+      "isFeatured": true,
+      "quantity": 1
+    }
+  ]
+}
